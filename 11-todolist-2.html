@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO LIST 2</title>
+    </head>
+    <body>
+        <main>
+            <div>
+                <h2>TODO LIST 2</h2>
+                <input type="text" placeholder="Todo input" class="js-input" onkeydown="
+                    enterButton(event);
+                ">
+                <button class="js-add-button" onclick="
+                    addButton();
+                ">ADD</button>
+                <div class="js-list"></div>
+            </div>
+        </main>
+        <script>
+            todoList = [];
+            
+            renderTodoList();
+
+            function renderTodoList(){
+                let todoListHTML = '';
+
+
+                for(let index = 0; index < todoList.length; index ++){
+                const todo = todoList[index]                  //that term index is a posistion in todoList array.
+
+                const html = `<p>${todo}</p>`;
+                todoListHTML += html;
+                }
+                // console.log(todo);
+                // console.log(todoListHTML);
+
+                document.querySelector('.js-list')
+                    .innerHTML  = todoListHTML;
+            }
+
+            function enterButton(event){
+                if(event.key === 'Enter'){
+                    addButton();
+                }
+            }
+
+            function addButton(){
+                const inputElement = document.querySelector('.js-input');
+                const name = inputElement.value;
+
+                todoList.push(name);
+
+                // console.log(todoList);
+
+                inputElement.value = '';
+
+                renderTodoList();
+            }
+        </script>
+    </body>
+</html>

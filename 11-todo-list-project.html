@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO LIST 1</title>
+    </head>
+    <body>
+        <main>
+            <div>
+                <h2>TODO LIST 1</h2>
+                <input class="js-todo-add" type="text" placeholder="TODO NAME" onkeydown="
+                    buttonSubmit(event);
+                ">
+                <button onclick="
+                    addList();
+                ">ADD</button>
+            </div>
+        </main>
+        <script>
+            todoList = []
+
+
+            function buttonSubmit(event){
+                if(event.key === 'Enter'){
+                    addList();
+                }
+            }
+
+
+            function addList(){
+                const inputElement = document.querySelector('.js-todo-add');
+                const name = inputElement.value;
+
+                // let finalList = inputElement();
+
+                todoList.push(name);
+                console.log(todoList)
+
+                inputElement.value = '';
+            }
+
+        </script>
+    </body>
+</html>
